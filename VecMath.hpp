@@ -37,6 +37,7 @@ public:
 	Vec2& multm(Mat2& m);
 	Vec2& multm3(Mat3& m);
 	Vec2& mults(float s);
+	Vec2& divs(float s);
 	bool approxEql(Vec2& v, float eps=0.000001);
 };
 
@@ -60,6 +61,7 @@ public:
 	Vec3& multm(Mat3& m);
 	Vec3& multm4(Mat4& m);
 	Vec3& mults(float s);
+	Vec3& divs(float s);
 	Vec3& cross(Vec3& v);
 	bool approxEql(Vec3& v, float eps=0.000001);
 };
@@ -83,6 +85,7 @@ public:
 	Vec4& neg();
 	Vec4& multm(Mat4& m);
 	Vec4& mults(float s);
+	Vec4& divs(float s);
 	bool approxEql(Vec4& v, float eps=0.000001);
 };
 
@@ -271,6 +274,12 @@ Vec2& Vec2::mults(float s){
 	return *this;
 }
 
+Vec2& Vec2::divs(float s){
+	x /= s; 
+	y /= s;
+	return *this;
+}
+
 bool Vec2::approxEql(Vec2& v, float eps){
 	return x > v.x - eps && x < v.x + eps  &&
 			y > v.y - eps && y < v.y + eps; 
@@ -387,6 +396,13 @@ Vec3& Vec3::mults(float s){
 	x *= s; 
 	y *= s;
 	z *= s;
+	return *this;
+}
+
+Vec3& Vec3::divs(float s){
+	x /= s; 
+	y /= s;
+	z /= s;
 	return *this;
 }
 
@@ -518,6 +534,14 @@ Vec4& Vec4::mults(float s){
 	y *= s;
 	z *= s;
 	w *= s;
+	return *this;
+}
+
+Vec4& Vec4::divs(float s){
+	x /= s; 
+	y /= s;
+	z /= s;
+	w /= s; 
 	return *this;
 }
 
